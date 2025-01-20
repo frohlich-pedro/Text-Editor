@@ -1,0 +1,12 @@
+﻿  untitled-2.cpp
+C:\Users\pedro\Projetos-Windows\untitled-2\untitled-2.h(20,9): warning C4005: 'EC_LEFTMARGIN': redefinição de macro
+  (compilando o arquivo fonte 'untitled-2.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winuser.h(11273,9):
+      ver a definição anterior de "EC_LEFTMARGIN"
+  
+C:\Users\pedro\Projetos-Windows\untitled-2\untitled-2.h(21,9): warning C4005: 'EC_RIGHTMARGIN': redefinição de macro
+  (compilando o arquivo fonte 'untitled-2.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winuser.h(11274,9):
+      ver a definição anterior de "EC_RIGHTMARGIN"
+  
+  untitled-2.vcxproj -> C:\Users\pedro\Projetos-Windows\untitled-2\x64\Debug\untitled-2.exe
