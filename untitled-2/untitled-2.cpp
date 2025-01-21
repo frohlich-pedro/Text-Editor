@@ -89,6 +89,26 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
 
+    const wchar_t* helloWorldAsm =
+        L"section .data\r\n"
+        L"    hello db 'Hello, World!',0\r\n"
+        L"\r\n"
+        L"section .text\r\n"
+        L"    global _start\r\n"
+        L"\r\n"
+        L"_start:\r\n"
+        L"    mov eax, 4\r\n"
+        L"    mov ebx, 1\r\n"
+        L"    mov ecx, hello\r\n"
+        L"    mov edx, 13\r\n"
+        L"    int 0x80\r\n"
+        L"\r\n"
+        L"    mov eax, 1\r\n"
+        L"    xor ebx, ebx\r\n"
+        L"    int 0x80\r\n";
+
+    SetWindowText(hEdit, helloWorldAsm);
+
     SendMessage(hEdit, EM_SETMARGINS, EC_LEFTMARGIN | EC_RIGHTMARGIN, MAKELPARAM(25, 25));
 
     AddMenus(hWnd);
