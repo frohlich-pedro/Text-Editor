@@ -117,14 +117,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_COMMAND:
     {
         int wmId = LOWORD(wParam);
-        // Parse the menu selections:
         switch (wmId)
         {
         case IDM_FILE_NEW:
             SetWindowText(hEdit, L"");
             break;
         case IDM_FILE_OPEN:
-            OpenCppFile(hWnd); // Add this line
+            OpenCppFile(hWnd);
             break;
         case IDM_FILE_SAVE:
             DoFileSave(hWnd);
@@ -244,7 +243,6 @@ void OpenCppFile(HWND hwnd)
                     {
                         pFileContents[dwRead] = '\0';
 
-                        // Convert to wide char and replace Unix line endings with Windows line endings
                         int cchWideChar = MultiByteToWideChar(CP_UTF8, 0, pFileContents, -1, NULL, 0);
                         wchar_t* pWideChar = (wchar_t*)GlobalAlloc(GPTR, cchWideChar * sizeof(wchar_t));
 
@@ -252,7 +250,6 @@ void OpenCppFile(HWND hwnd)
                         {
                             MultiByteToWideChar(CP_UTF8, 0, pFileContents, -1, pWideChar, cchWideChar);
 
-                            // Replace \n with \r\n
                             std::wstring wideStr(pWideChar);
                             size_t pos = 0;
                             while ((pos = wideStr.find(L"\n", pos)) != std::wstring::npos)
